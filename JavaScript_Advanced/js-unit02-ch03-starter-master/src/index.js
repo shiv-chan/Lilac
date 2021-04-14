@@ -19,6 +19,7 @@ function handleClick(e) {
       `
     })
     .catch((e) => {
+      console.log(e)
       mainEl.innerHTML = `
         <div className="property-info-wrapper">
           <p>${e.message}</p>
@@ -34,15 +35,18 @@ function getData() {
     失敗ならエラーメッセージをPromise.rejectで返します。
   */
   return fetchData()
-    .then(result => {
-      const data = result.json();
-      if(result.status === 200){
-        // const propertyData = result.propertyData;
-        // console.log(result.json().propertyData);
-        return Promise.resolve(data);
-      } 
-        // console.log(result.json());
-        return Promise.reject(new Error('error'));
+    .then(data => {
+      const json = data.json();
+      if(data.status === 200){
+        // console.log(json);
+        return Promise.resolve(json);
+      } else if (data.status === 403){
+        // return Promise.reject(new Error(json.message));
+        return json.then(result => {
+          console.log(result.message);
+          return Promise.reject(new Error(result.message))
+        })
+      }
     })
 }
 
@@ -53,8 +57,6 @@ function fetchData() {
     fetchを使ってデータを取得します。
   */
   return fetch(url)
-    .then(res => res)
-    .catch(err => console.log(err));
 }
 
 {
