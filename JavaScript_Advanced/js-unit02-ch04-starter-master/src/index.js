@@ -131,16 +131,16 @@ class Character {
         ==============================
         `
         main.append(div);
+      } else {
+        this._MP -= 3;
+        target._HP += 15;
+        div.innerHTML = `
+          ==============================
+          <p>${this._Name} healed ${target._Name}.<br>${target._Name} recovered 15HP!</p>
+          ==============================
+          `
+        main.append(div);
       }
-
-      this._MP -= 3;
-      target._HP += 15;
-      div.innerHTML = `
-        ==============================
-        <p>${this._Name} healed ${target._Name}.<br>${target._Name} recovered 15HP!</p>
-        ==============================
-        `
-      main.append(div);
     }
 
     fireSpell(target) {
@@ -179,16 +179,16 @@ class Character {
           ==============================
           `
           main.append(div);
+        } else {
+          this._MP -= 2;
+          target._HP -= 10;
+          div.innerHTML = `
+            ==============================
+            <p>${this._Name} attacked ${target._Name} and gave 10 damage.</p>
+            ==============================
+            `
+          main.append(div);
         }
-
-      this._MP -= 2;
-      target._HP -= 10;
-      div.innerHTML = `
-        ==============================
-        <p>${this._Name} attacked ${target._Name} and gave 10 damage.</p>
-        ==============================
-        `
-      main.append(div);
     }
   }
 
