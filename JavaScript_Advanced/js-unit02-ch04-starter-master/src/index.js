@@ -113,6 +113,7 @@ class Character {
         ==============================
         `
         main.append(div);
+        return;
       }
 
       if(target._HP <= 0){
@@ -122,6 +123,7 @@ class Character {
         ==============================
         `
         main.append(div);
+        return;
       }
 
       if(this._MP < 3){
@@ -161,6 +163,7 @@ class Character {
           ==============================
           `
           main.append(div);
+          return;
         }
   
         if(target._HP <= 0){
@@ -170,6 +173,7 @@ class Character {
           ==============================
           `
           main.append(div);
+          return;
         }
 
         if(this._MP < 2){
