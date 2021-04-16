@@ -44,6 +44,7 @@ class Character {
       ==============================
       `
       main.append(div);
+      return;
     }
 
     if(defender._HP === 0){
@@ -53,6 +54,7 @@ class Character {
       ==============================
       `
       main.append(div);
+      return;
     }
     
     let damage = this.calcAttackDamage(defender);
