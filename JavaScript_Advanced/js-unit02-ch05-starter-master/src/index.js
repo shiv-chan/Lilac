@@ -24,7 +24,7 @@ class TranslationApp {
    */
 	updateLocale(e) {
 		this.currentLocale = e.target.dataset.locale;
-    // this.showMessage();
+    app.showMessage();
 	}
 
   /**
