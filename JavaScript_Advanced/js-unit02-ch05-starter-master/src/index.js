@@ -11,6 +11,9 @@ class TranslationApp {
 	 * Use polyglot.extend() to set a message.
 	 */
 	setup() {
+		// 💡 need to add if statement.
+		// i.e. if locale is ja, return こんにちは、世界. otherwise, return Hello world
+		// Polyglot package, documentation -> check Polyglot's syntax (i.e. .extend() etc)
 		this.polyglot.extend({
 			ja: 'こんにちは、世界',
 			en: 'Hello, World',
@@ -25,6 +28,7 @@ class TranslationApp {
 	updateLocale(e) {
 		this.currentLocale = e.target.dataset.locale;
 		localStorage.setItem('locale', this.currentLocale);
+		// 💡 func showMessage is in a same scope with this func, updateLocale -> this.showMessage
 		app.showMessage();
 	}
 
