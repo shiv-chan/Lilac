@@ -2,7 +2,8 @@ import _ from 'lodash';
 const storedNums = [];
 
 function addRandomNum() {
-  const mainEl = document.getElementById('main');
+  // 💡 unnecessary variable by starter. delete it 👍
+  // const mainEl = document.getElementById('main');
   let p = document.createElement('p');
   let randNum = _.random(0, 10);
   p.innerHTML = "Random Number: " + randNum.toString();
@@ -15,8 +16,10 @@ function addRandomNum() {
 }
 
 function recordNumber() {
-  const mainEl = document.getElementById('main');
+  // 💡 unnecessary variable by starter. delete it 👍
+  // const mainEl = document.getElementById('main');
   let p = document.createElement('p');
+  // _.sum(storedNums) can be assigned to a variable. ->  readable code
   p.textContent = `Sum of the Last 5 Random Numbers: ${_.sum(storedNums)}`;
   document.body.appendChild(p);
 }

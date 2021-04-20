@@ -28,6 +28,7 @@ function handleClick(e) {
     })
 }
 
+// 💡 start from func fetchData -> start from funcs to visualize values/results
 function getData() {
   /* 
     fetchDataを呼び出し、responseのステータスを元にデータ取得成功か失敗かを判断しましょう。 
