@@ -14,10 +14,15 @@ class TranslationApp {
 		// 💡 need to add if statement.
 		// i.e. if locale is ja, return こんにちは、世界. otherwise, return Hello world
 		// Polyglot package, documentation -> check Polyglot's syntax (i.e. .extend() etc)
-		this.polyglot.extend({
-			ja: 'こんにちは、世界',
-			en: 'Hello, World',
-		});
+		if (this.currentLocale === 'ja') {
+			this.polyglot.extend({
+				ja: 'こんにちは、世界',
+			});
+		} else if (this.currentLocale === 'en') {
+			this.polyglot.extend({
+				en: 'Hello, World',
+			});
+		}
 
 		return this.polyglot.t(this.currentLocale);
 	}
@@ -26,8 +31,8 @@ class TranslationApp {
 	 * Update the current locale according to data-local attribute in buttons.
 	 */
 	updateLocale(e) {
-		this.currentLocale = e.target.dataset.locale;
-		localStorage.setItem('locale', this.currentLocale);
+		app.currentLocale = e.target.dataset.locale;
+		localStorage.setItem('locale', app.currentLocale);
 		// 💡 func showMessage is in a same scope with this func, updateLocale -> this.showMessage
 		app.showMessage();
 	}
@@ -38,7 +43,16 @@ class TranslationApp {
 	 */
 	showMessage() {
 		const main = document.querySelector('#main');
-		const h1 = document.createElement('h1');
+		if (main.querySelector('h1') == null) {
+			let h1 = document.createElement('h1');
+			this.setH1(h1, main);
+		} else {
+			let h1 = main.querySelector('h1');
+			this.setH1(h1, main);
+		}
+	}
+
+	setH1(h1, main) {
 		h1.innerHTML = this.setup();
 		main.append(h1);
 	}
