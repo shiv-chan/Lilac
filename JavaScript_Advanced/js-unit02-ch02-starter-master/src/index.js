@@ -53,7 +53,7 @@ function getData() {
       if(result.success){
         return Promise.resolve(result.propertyData);
       } else {
-        return Promise.reject(result.message);
+        return Promise.reject(result);
       }
     })
 }
